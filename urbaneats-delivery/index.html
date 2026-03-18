@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UrbanEats Delivery</title>
+    <meta name="description" content="Rapid local food and grocery delivery service for urban areas.">
+    <meta name="keywords" content="food delivery, grocery delivery, urban eats, rapid delivery">
+    <link rel="icon" href="logo.png">
+    <link rel="manifest" href="manifest.json">
+    <style>
+        /* Import Tailwind CSS */
+        @import url('https://cdn.tailwindcss.com');
+
+        /* Custom styles */
+        .gradient {
+            background: linear-gradient(to bottom, #ff9900, #ffcc00);
+            height: 100vh;
+        }
+
+        .glassmorphism {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+        }
+
+        .card {
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #ff9900, #ffcc00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .back-to-top:hover {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sticky Navbar -->
+    <div class="sticky top-0 bg-gray-100 py-4">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-lg font-bold text-gray-600">UrbanEats Delivery</a>
+            <button class="lg:hidden bg-transparent border border-gray-300 p-2 text-gray-600 hover:text-gray-900" id="mobile-menu">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero h-screen bg-cover bg-center" style="background-image: url('hero.jpg')">
+        <div class="glassmorphism flex justify-center items-center h-full">
+            <h1 class="text-5xl text-white font-bold text-gradient">Rapid Local Delivery</h1>
+            <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded">Order Now</button>
+        </div>
+    </div>
+
+    <!-- About Us Section -->
+    <div class="about-us py-20 bg-gray-100">
+        <h2 class="text-4xl text-gray-600 font-bold mb-4">About Us</h2>
+        <p class="text-lg text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+    </div>
+
+    <!-- Services Section -->
+    <div class="services py-20 bg-gray-100">
+        <h2 class="text-4xl text-gray-600 font-bold mb-4">Our Services</h2>
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div class="card p-4 rounded-lg hover:scale-105 hover:shadow-lg transition duration-300">
+                <h3 class="text-lg text-gray-600 font-bold mb-2">Food Delivery</h3>
+                <p class="text-sm text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="card p-4 rounded-lg hover:scale-105 hover:shadow-lg transition duration-300">
+                <h3 class="text-lg text-gray-600 font-bold mb-2">Grocery Delivery</h3>
+                <p class="text-sm text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="card p-4 rounded-lg hover:scale-105 hover:shadow-lg transition duration-300">
+                <h3 class="text-lg text-gray-600 font-bold mb-2">Pharmacy Delivery</h3>
+                <p class="text-sm text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div class="testimonials py-20 bg-gray-100">
+        <h2 class="text-4xl text-gray-600 font-bold mb-4">What Our Customers Say</h2>
+        <div class="container mx-auto flex flex-col items-center">
+            <div class="bg-white p-4 rounded-lg mb-4">
+                <p class="text-lg text-gray-600 font-bold mb-2">John Doe</p>
+                <p class="text-sm text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg mb-4">
+                <p class="text-lg text-gray-600 font-bold mb-2">Jane Doe</p>
+                <p class="text-sm text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Form Section -->
+    <div class="contact-form py-20 bg-gray-100">
+        <h2 class="text-4xl text-gray-600 font-bold mb-4">Get in Touch</h2>
+        <form class="container mx-auto flex flex-col items-center">
+            <input type="text" class="w-full p-4 mb-4 border rounded-lg" placeholder="Name">
+            <input type="email" class="w-full p-4 mb-4 border rounded-lg" placeholder="Email">
+            <textarea class="w-full p-4 mb-4 border rounded-lg" placeholder="Message"></textarea>
+            <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded">Send Message</button>
+        </form>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer py-4 bg-gray-100">
+        <div class="container mx-auto flex flex-col items-center">
+            <p class="text-sm text-gray-600">Copyright 2023 UrbanEats Delivery</p>
+            <p class="text-sm text-gray-600">Contact Us: 555-0789 | support@urbaneats.com</p>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu hidden lg:flex flex-col items-center">
+        <ul class="flex flex-col items-center">
+            <li class="py-4"><a href="#" class="text-lg text-gray-600">About Us</a></li>
+            <li class="py-4"><a href="#" class="text-lg text-gray-600">Our Services</a></li>
+            <li class="py-4"><a href="#" class="text-lg text-gray-600">Testimonials</a></li>
+            <li class="py-4"><a href="#" class="text-lg text-gray-600">Contact Us</a></li>
+        </ul>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 0l-4 4-4-4" />
+        </svg>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // Sticky Navbar
+        const navbar = document.querySelector('.sticky');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('bg-white', 'shadow-md');
+            } else {
+                navbar.classList.remove('bg-white', 'shadow-md');
+            }
+        });
+
+        // Mobile Menu
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu ul li a');
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenuLinks.forEach((link) => {
+                link.classList.toggle('font-bold');
+            });
+        });
+
+        // Back to Top Button
+        const backToTop = document.getElementById('back-to-top');
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Scroll Animation
+        const sections = document.querySelectorAll('section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, {
+            rootMargin: '100px 0px',
+            threshold: 1.0
+        });
+        sections.forEach((section) => {
+            observer.observe(section);
+        });
+    </script>
+
+    <!-- Intersection Observer Polyfill -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</body>
+</html>
