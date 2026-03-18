@@ -1,133 +1,334 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>digimark | Digital Marketing Solutions</title>
-  <meta name="description" content="digimark | Digital Marketing Solutions">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></script>
-  <style>
-    .animate-on-scroll { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .animate-visible { opacity: 1; transform: translateY(0); }
-    html { scroll-behavior: smooth; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>digimark - Digital Marketing Agency</title>
+    <meta name="description" content="We help brands grow online">
+    <meta property="og:title" content="digimark - Digital Marketing Agency">
+    <meta property="og:description" content="We help brands grow online">
+    <meta property="og:image" content="https://via.placeholder.com/1200x800">
+    <link rel="stylesheet" href="https://cdn.tailwindcss.com">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f5f5;
+        }
+        .nav-transparent {
+            background-color: transparent;
+            box-shadow: none;
+            transition: background-color 0.3s ease;
+        }
+        .nav-transparent .navbar-brand {
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+        .nav-transparent .navbar-brand:hover {
+            color: #ccc;
+        }
+        .nav-solid {
+            background-color: #333;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .nav-solid .navbar-brand {
+            color: #fff;
+        }
+        .hero {
+            background-image: linear-gradient(to bottom right, #333, #555);
+        }
+        .hero .hero-text {
+            color: #fff;
+            text-shadow: 0 0 10px #333;
+        }
+        .hero .hero-text h1 {
+            text-shadow: 0 0 10px #fff;
+        }
+        .hero .hero-text p {
+            color: #ccc;
+        }
+        .hero .cta {
+            background-image: linear-gradient(to bottom right, #555, #666);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .hero .cta:hover {
+            background-image: linear-gradient(to bottom right, #666, #777);
+        }
+        .about {
+            background-color: #f7f7f7;
+        }
+        .about .about-text {
+            color: #666;
+        }
+        .about .about-text p {
+            color: #999;
+        }
+        .services {
+            background-color: #f5f5f5;
+        }
+        .services .service-card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .services .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .services .service-card img {
+            border-radius: 10px;
+        }
+        .testimonials {
+            background-color: #f7f7f7;
+        }
+        .testimonials .testimonial {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .testimonials .testimonial:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .contact {
+            background-color: #f5f5f5;
+        }
+        .contact .contact-form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .contact .contact-form input[type="text"], .contact .contact-form textarea {
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+        .contact .contact-form input[type="text"]:hover, .contact .contact-form textarea:hover {
+            border-color: #ccc;
+        }
+        .contact .contact-form button[type="submit"] {
+            background-image: linear-gradient(to bottom right, #555, #666);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .contact .contact-form button[type="submit"]:hover {
+            background-image: linear-gradient(to bottom right, #666, #777);
+        }
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .footer a {
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+        .footer a:hover {
+            color: #ccc;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+        .back-to-top:hover {
+            opacity: 0.8;
+        }
+    </style>
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="sticky top-0 bg-white shadow-md p-4 flex justify-between items-center">
-    <a href="#" class="text-lg font-bold">digimark</a>
-    <button class="lg:hidden p-2 hover:bg-gray-100 rounded-md" aria-label="Hamburger menu">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-      </svg>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#hero">digimark</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#hero">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="hero" id="hero">
+        <div class="container">
+            <div class="row justify-content-center align-items-center" style="height: 100vh;">
+                <div class="col-md-6">
+                    <div class="hero-text">
+                        <h1>We Help Brands Grow Online</h1>
+                        <p>Get expert digital marketing services to boost your online presence.</p>
+                        <button class="cta">Get Started</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="about" id="about">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="about-text">
+                        <h2>About Us</h2>
+                        <p>We are a digital marketing agency that helps businesses grow online. Our team of experts provides top-notch services to boost your online presence.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="services" id="services">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="service-card animate-fade-up">
+                                <img src="https://via.placeholder.com/400x300" alt="Service 1">
+                                <h3>Service 1</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="service-card animate-fade-up">
+                                <img src="https://via.placeholder.com/400x300" alt="Service 2">
+                                <h3>Service 2</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="service-card animate-fade-up">
+                                <img src="https://via.placeholder.com/400x300" alt="Service 3">
+                                <h3>Service 3</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="testimonial animate-fade-up">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+                        <h3>John Doe</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contact" id="contact">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="contact-form">
+                        <input type="text" placeholder="Name">
+                        <input type="email" placeholder="Email">
+                        <textarea placeholder="Message"></textarea>
+                        <button type="submit">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <p>&copy; 2023 digimark. All rights reserved.</p>
+                    <ul>
+                        <li><a href="tel:+9877543119">+9877543119</a></li>
+                        <li><a href="mailto:hello@digie.com">hello@digie.com</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="back-to-top" id="back-to-top">
+        <i class="fas fa-chevron-up"></i>
     </button>
-    <ul class="hidden lg:flex items-center justify-end gap-4">
-      <li><a href="#hero" class="text-gray-600 hover:text-gray-800 transition duration-300 ease-in-out">Home</a></li>
-      <li><a href="#about" class="text-gray-600 hover:text-gray-800 transition duration-300 ease-in-out">About</a></li>
-      <li><a href="#services" class="text-gray-600 hover:text-gray-800 transition duration-300 ease-in-out">Services</a></li>
-      <li><a href="#testimonials" class="text-gray-600 hover:text-gray-800 transition duration-300 ease-in-out">Testimonials</a></li>
-      <li><a href="#contact" class="text-gray-600 hover:text-gray-800 transition duration-300 ease-in-out">Contact</a></li>
-    </ul>
-  </nav>
-
-  <!-- Hero Section -->
-  <section id="hero" class="bg-gradient-to-b from-purple-500 to-pink-500 h-screen">
-    <div class="container mx-auto h-full pt-20">
-      <h1 class="text-5xl font-bold text-white">digimark</h1>
-      <p class="text-lg text-white opacity-50">We help brands grow online</p>
-      <button class="bg-white hover:bg-gray-100 text-purple-500 hover:text-purple-600 font-bold py-2 px-4 rounded-md hover:scale-105 transition duration-300 ease-in-out">Get Started</button>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="py-16">
-    <div class="container mx-auto pt-20">
-      <h2 class="text-4xl font-bold text-gray-800">About Us</h2>
-      <p class="text-lg text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-    </div>
-  </section>
-
-  <!-- Services Section -->
-  <section id="services" class="py-16">
-    <div class="container mx-auto pt-20">
-      <h2 class="text-4xl font-bold text-gray-800">Our Services</h2>
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
-        <div class="bg-white shadow-lg p-4 rounded-md hover:shadow-xl transition duration-300 ease-in-out">
-          <h3 class="text-2xl font-bold text-gray-800">Service 1</h3>
-          <p class="text-lg text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-        <div class="bg-white shadow-lg p-4 rounded-md hover:shadow-xl transition duration-300 ease-in-out">
-          <h3 class="text-2xl font-bold text-gray-800">Service 2</h3>
-          <p class="text-lg text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-        <div class="bg-white shadow-lg p-4 rounded-md hover:shadow-xl transition duration-300 ease-in-out">
-          <h3 class="text-2xl font-bold text-gray-800">Service 3</h3>
-          <p class="text-lg text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials Section -->
-  <section id="testimonials" class="py-16">
-    <div class="container mx-auto pt-20">
-      <h2 class="text-4xl font-bold text-gray-800">Testimonials</h2>
-      <div class="mx-auto flex justify-center items-center">
-        <div class="bg-white shadow-lg p-4 rounded-md hover:shadow-xl transition duration-300 ease-in-out w-64">
-          <p class="text-lg text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          <p class="text-sm text-gray-600">John Doe, Client</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="py-16">
-    <div class="container mx-auto pt-20">
-      <h2 class="text-4xl font-bold text-gray-800">Contact Us</h2>
-      <form>
-        <div class="flex flex-col gap-4">
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" class="bg-gray-100 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50">
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" class="bg-gray-100 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50">
-          <label for="message">Message:</label>
-          <textarea id="message" name="message" class="bg-gray-100 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50"></textarea>
-        </div>
-        <button class="bg-white hover:bg-gray-100 text-purple-500 hover:text-purple-600 font-bold py-2 px-4 rounded-md hover:scale-105 transition duration-300 ease-in-out">Send Message</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-gray-100 p-4">
-    <div class="container mx-auto flex justify-between items-center">
-      <p class="text-sm text-gray-600">digimark 2024</p>
-      <ul class="flex gap-4">
-        <li><a href="#" class="text-gray-600 hover:text-gray-800 transition duration-300 ease-in-out"><i class="fa-brands fa-facebook-f"></i></a></li>
-        <li><a href="#" class="text-gray-600 hover:text-gray-800 transition duration-300 ease-in-out"><i class="fa-brands fa-twitter"></i></a></li>
-        <li><a href="#" class="text-gray-600 hover:text-gray-800 transition duration-300 ease-in-out"><i class="fa-brands fa-instagram"></i></a></li>
-        <li><a href="#" class="text-gray-600 hover:text-gray-800 transition duration-300 ease-in-out"><i class="fa-brands fa-linkedin"></i></a></li>
-      </ul>
-    </div>
-  </footer>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
-          if (entry.isIntersecting) {
-            entry.target.style.transitionDelay = `${index * 100}ms`;
-            entry.target.classList.add('animate-visible');
-          }
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-up');
+                }
+            });
+        }, {
+            threshold: 1,
         });
-      }, { threshold: 0.1 });
-      document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
-    });
-  </script>
+
+        document.querySelectorAll('.animate-fade-up').forEach((el) => {
+            observer.observe(el);
+        });
+
+        document.querySelector('.back-to-top').addEventListener('click', () => {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        });
+
+        document.querySelectorAll('.service-card').forEach((el) => {
+            observer.observe(el);
+        });
+
+        document.querySelectorAll('.testimonial').forEach((el) => {
+            observer.observe(el);
+        });
+
+        document.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            if (scrollPosition > 50) {
+                document.querySelector('.navbar').classList.add('nav-solid');
+            } else {
+                document.querySelector('.navbar').classList.remove('nav-solid');
+            }
+        });
+
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach((link) => {
+            link.addEventListener('click', () => {
+                const id = link.getAttribute('href').slice(1);
+                document.querySelector(`#${id}`).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
 </body>
 </html>
-```
-
-Note: The script pattern at the end of the HTML code should be placed in a separate JavaScript file for better organization.
