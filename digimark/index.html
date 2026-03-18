@@ -3,261 +3,418 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Digimark - Growing brands online">
-    <meta name="keywords" content="digital marketing, online growth, branding">
-    <meta property="og:title" content="Digimark">
-    <meta property="og:description" content="Growing brands online">
-    <meta property="og:image" content="https://example.com/og-image.jpg">
-    <meta property="og:url" content="https://digimark.com">
-    <link rel="icon" href="https://example.com/favicon.ico">
-    <title>Digimark</title>
-    <script src='https://cdn.tailwindcss.com'></script>
+    <title>digimark</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* Global Styles */
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #f1c40f;
+            --accent-color: #2ecc71;
+            --background-color: #f9f9f9;
+            --text-color: #333;
+            --gradient: linear-gradient(to bottom, #33ccff, #77bbff);
         }
-        
-        .gradient-overlay {
-            background-image: linear-gradient(to bottom, #007bff, #0069d9);
-            background-size: 100% 300px;
-            background-position: 0% 100%;
-            transition: background-position 0.3s ease-in-out;
+
+        /* Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: transparent;
+            padding: 1rem;
+            transition: background-color 0.3s ease;
         }
-        
-        .gradient-overlay.animate {
-            background-position: 0% 0%;
+
+        .navbar.sticky {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        
-        .glass-morphism {
-            background-color: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border-radius: 1rem;
+
+        .navbar .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+
+        .navbar .links {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .links a {
+            margin-right: 1rem;
+            font-size: 1rem;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero */
+        .hero {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-size: cover;
+            background-position: center;
+            background-image: linear-gradient(to bottom, #33ccff, #77bbff), url('https://picsum.photos/2000/1000');
+        }
+
+        .hero .title {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero .cta {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero .cta:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* About Us */
+        .about-us {
+            padding: 5rem;
+            background-color: var(--background-color);
+            text-align: center;
+        }
+
+        .about-us .title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        .about-us .description {
+            font-size: 1.5rem;
+            color: var(--text-color);
+            margin-bottom: 2rem;
+        }
+
+        /* Services */
+        .services {
+            padding: 5rem;
+            background-color: var(--background-color);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .services .card {
+            background-color: #fff;
             padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
         }
-        
-        .text-gradient {
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-image: linear-gradient(to right, #007bff, #0069d9);
+
+        .services .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
-        
-        .card {
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            border-radius: 1rem;
-            transition: transform 0.3s ease-in-out;
+
+        .services .card .title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-color);
+            margin-bottom: 1rem;
         }
-        
-        .card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+        .services .card .description {
+            font-size: 1rem;
+            color: var(--text-color);
+            margin-bottom: 2rem;
         }
-        
+
+        /* Testimonials */
+        .testimonials {
+            padding: 5rem;
+            background-color: var(--background-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .testimonials .quote {
+            font-size: 2rem;
+            font-style: italic;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        .testimonials .author {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-color);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            padding: 5rem;
+            background-color: var(--background-color);
+        }
+
+        .contact-form .title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        .contact-form .form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-form .form input, .contact-form .form textarea {
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            width: 100%;
+            margin-bottom: 2rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .contact-form .form input:hover, .contact-form .form textarea:hover {
+            border-color: var(--accent-color);
+        }
+
+        .contact-form .form button {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form .form button:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 2rem;
+            background-color: var(--background-color);
+            text-align: center;
+            border-top: 1px solid #ddd;
+        }
+
+        .footer .links {
+            display: flex;
+            justify-content: center;
+        }
+
+        .footer .links a {
+            margin-right: 1rem;
+            font-size: 1rem;
+            color: var(--text-color);
+            transition: color 0.3s ease;
+        }
+
+        .footer .links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Utilities */
         .animate-fade-up {
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            transform: translateY(-20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
         }
-        
-        .animate-fade-up.animate {
+
+        .animate-fade-up.fade-in {
             opacity: 1;
             transform: translateY(0);
         }
-        
+
         .animate-fade-left {
             opacity: 0;
             transform: translateX(-20px);
-            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            transition: opacity 0.3s ease, transform 0.3s ease;
         }
-        
-        .animate-fade-left.animate {
+
+        .animate-fade-left.fade-in {
             opacity: 1;
             transform: translateX(0);
         }
-        
+
         .animate-fade-right {
             opacity: 0;
             transform: translateX(20px);
-            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            transition: opacity 0.3s ease, transform 0.3s ease;
         }
-        
-        .animate-fade-right.animate {
+
+        .animate-fade-right.fade-in {
             opacity: 1;
             transform: translateX(0);
         }
     </style>
 </head>
 <body>
-    <nav class="sticky top-0 bg-transparent z-10 glass-morphism shadow-md">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="#" class="text-lg text-white font-bold">Digimark</a>
-            <button class="lg:hidden" onclick="toggleNavbar()">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
-            <ul class="hidden lg:flex lg:items-center lg:space-x-4">
-                <li><a href="#hero" class="text-white hover:text-gray-300 transition duration-300 ease-in-out">Home</a></li>
-                <li><a href="#about" class="text-white hover:text-gray-300 transition duration-300 ease-in-out">About Us</a></li>
-                <li><a href="#services" class="text-white hover:text-gray-300 transition duration-300 ease-in-out">Services</a></li>
-                <li><a href="#testimonials" class="text-white hover:text-gray-300 transition duration-300 ease-in-out">Testimonials</a></li>
-                <li><a href="#contact" class="text-white hover:text-gray-300 transition duration-300 ease-in-out">Contact</a></li>
-            </ul>
+    <!-- Navbar -->
+    <nav class="navbar sticky" id="navbar">
+        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+            <div class="logo">
+                <a href="#hero">digimark</a>
+            </div>
+            <div class="links">
+                <a href="#about-us">About Us</a>
+                <a href="#services">Services</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact-form">Contact Us</a>
+            </div>
         </div>
     </nav>
-    <header id="hero" class="h-screen bg-cover bg-center bg-no-repeat" style="background-image: url('https://example.com/hero.jpg')">
-        <div class="container mx-auto px-4 pt-16">
-            <h1 class="text-5xl text-white text-gradient">Digimark</h1>
-            <p class="text-lg text-white">We help brands grow online</p>
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">Get Started</button>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+        <div class="container mx-auto px-4 py-2 h-screen">
+            <div class="title">
+                We help brands grow online
+            </div>
+            <button class="cta">Get Started</button>
         </div>
-    </header>
-    <main>
-        <section id="about" class="py-16 bg-gray-100">
-            <div class="container mx-auto px-4 pt-16">
-                <h2 class="text-3xl text-gray-800">About Us</h2>
-                <p class="text-lg text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+    </section>
+
+    <!-- About Us -->
+    <section class="about-us" id="about-us">
+        <div class="container mx-auto px-4 py-2">
+            <h2 class="title">About Us</h2>
+            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+        <div class="container mx-auto px-4 py-2 grid gap-2">
+            <div class="card animate-fade-up fade-in">
+                <h2 class="title">Digital Marketing</h2>
+                <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
             </div>
-        </section>
-        <section id="services" class="py-16">
-            <div class="container mx-auto px-4 pt-16">
-                <h2 class="text-3xl text-gray-800">Services</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <div class="card">
-                        <h3 class="text-lg text-gray-800">Service 1</h3>
-                        <p class="text-lg text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                    <div class="card">
-                        <h3 class="text-lg text-gray-800">Service 2</h3>
-                        <p class="text-lg text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                    <div class="card">
-                        <h3 class="text-lg text-gray-800">Service 3</h3>
-                        <p class="text-lg text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                </div>
+            <div class="card animate-fade-up fade-in">
+                <h2 class="title">Social Media Management</h2>
+                <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
             </div>
-        </section>
-        <section id="testimonials" class="py-16 bg-gray-100">
-            <div class="container mx-auto px-4 pt-16">
-                <h2 class="text-3xl text-gray-800">Testimonials</h2>
-                <div class="flex flex-col items-center">
-                    <p class="text-lg text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <p class="text-lg text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
+            <div class="card animate-fade-up fade-in">
+                <h2 class="title">Content Creation</h2>
+                <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
             </div>
-        </section>
-        <section id="contact" class="py-16">
-            <div class="container mx-auto px-4 pt-16">
-                <h2 class="text-3xl text-gray-800">Contact</h2>
-                <form>
-                    <input type="text" placeholder="Name" class="w-full p-2 mb-4 border border-gray-400 rounded">
-                    <input type="email" placeholder="Email" class="w-full p-2 mb-4 border border-gray-400 rounded">
-                    <input type="text" placeholder="Phone" class="w-full p-2 mb-4 border border-gray-400 rounded">
-                    <textarea placeholder="Message" class="w-full p-2 mb-4 border border-gray-400 rounded"></textarea>
-                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Send Message</button>
-                </form>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container mx-auto px-4 py-2">
+            <blockquote>
+                <p class="quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+                <p class="author">John Doe</p>
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="contact-form" id="contact-form">
+        <div class="container mx-auto px-4 py-2">
+            <h2 class="title">Contact Us</h2>
+            <form>
+                <input type="text" placeholder="Name">
+                <input type="email" placeholder="Email">
+                <textarea placeholder="Message"></textarea>
+                <button>Send</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container mx-auto px-4 py-2">
+            <p>&copy; 2023 digimark</p>
+            <div class="links">
+                <a href="https://www.facebook.com/digimark" target="_blank">Facebook</a>
+                <a href="https://www.twitter.com/digimark" target="_blank">Twitter</a>
+                <a href="https://www.instagram.com/digimark" target="_blank">Instagram</a>
             </div>
-        </section>
-    </main>
-    <footer class="bg-gray-900 text-white py-8">
-        <div class="container mx-auto px-4 pt-8">
-            <p class="text-lg text-center">&copy; 2023 Digimark</p>
-            <ul class="flex justify-center space-x-4">
-                <li><a href="#" class="text-gray-300 hover:text-white transition duration-300 ease-in-out">Terms of Use</a></li>
-                <li><a href="#" class="text-gray-300 hover:text-white transition duration-300 ease-in-out">Privacy Policy</a></li>
-            </ul>
         </div>
     </footer>
-    <button id="back-to-top" class="fixed bottom-4 right-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7-7 7M5 5V18M20 5H5"></path>
-        </svg>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top">
+        <i class="fas fa-angle-up"></i>
     </button>
+
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        function toggleNavbar() {
-            document.querySelector('nav').classList.toggle('hidden');
-        }
-        
-        function handleScroll() {
-            const sections = document.querySelectorAll('section');
-            sections.forEach((section) => {
-                const rect = section.getBoundingClientRect();
-                if (rect.top < window.innerHeight && rect.bottom > 0) {
-                    section.classList.add('animate-fade-up');
-                } else {
-                    section.classList.remove('animate-fade-up');
-                }
-            });
-        }
-        
-        function handleScrollServices() {
-            const cards = document.querySelectorAll('.card');
-            cards.forEach((card, index) => {
-                const rect = card.getBoundingClientRect();
-                if (rect.top < window.innerHeight && rect.bottom > 0) {
-                    card.classList.add('animate-fade-up');
-                    setTimeout(() => {
-                        card.classList.add('animate-fade-right');
-                    }, index * 200);
-                } else {
-                    card.classList.remove('animate-fade-up', 'animate-fade-right');
-                }
-            });
-        }
-        
-        function handleIntersection(entries) {
+        const navbar = document.getElementById('navbar');
+        const hero = document.getElementById('hero');
+        const aboutUs = document.getElementById('about-us');
+        const services = document.getElementById('services');
+        const testimonials = document.getElementById('testimonials');
+        const contactForm = document.getElementById('contact-form');
+        const footer = document.getElementById('footer');
+        const backToTop = document.getElementById('back-to-top');
+
+        let observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fade-up');
+                    entry.target.classList.add('fade-in');
                 } else {
-                    entry.target.classList.remove('animate-fade-up');
+                    entry.target.classList.remove('fade-in');
                 }
             });
-        }
-        
-        const observer = new IntersectionObserver(handleIntersection, {
-            rootMargin: '50px',
+        }, {
+            rootMargin: '20px 0px 40px 0px'
         });
-        
-        const sections = document.querySelectorAll('section');
-        sections.forEach((section) => {
-            observer.observe(section);
-        });
-        
-        window.addEventListener('scroll', handleScroll);
-        window.addEventListener('scroll', handleScrollServices);
-        
-        document.querySelector('#back-to-top').addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-        
-        const navbar = document.querySelector('nav');
+
+        observer.observe(navbar);
+        observer.observe(hero);
+        observer.observe(aboutUs);
+        observer.observe(services);
+        observer.observe(testimonials);
+        observer.observe(contactForm);
+        observer.observe(footer);
+
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.remove('bg-transparent');
-                navbar.classList.add('bg-gray-900');
+            if (window.scrollY > 200) {
+                backToTop.classList.add('visible');
             } else {
-                navbar.classList.add('bg-transparent');
-                navbar.classList.remove('bg-gray-900');
+                backToTop.classList.remove('visible');
             }
         });
-        
-        const hero = document.querySelector('#hero');
-        hero.addEventListener('scroll', () => {
-            if (window.scrollY > hero.offsetTop) {
-                hero.classList.add('gradient-overlay');
-            } else {
-                hero.classList.remove('gradient-overlay');
-            }
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
-        
-        const links = document.querySelectorAll('a[href^="#"]');
-        links.forEach((link) => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const section = document.querySelector(link.getAttribute('href'));
-                section.scrollIntoView({ behavior: 'smooth' });
+
+        const cards = document.querySelectorAll('.card');
+        cards.forEach((card, index) => {
+            observer.observe(card);
+            card.addEventListener('mouseover', () => {
+                card.classList.add('animate-fade-up');
+            });
+            card.addEventListener('mouseout', () => {
+                card.classList.remove('animate-fade-up');
             });
         });
     </script>
