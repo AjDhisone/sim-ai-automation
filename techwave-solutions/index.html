@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Custom software development and cloud solutions provider.">
+    <meta name="keywords" content="software development, cloud solutions, techwave solutions">
+    <meta property="og:title" content="TechWave Solutions">
+    <meta property="og:description" content="Custom software development and cloud solutions provider.">
+    <meta property="og:image" content="https://example.com/techwave-logo.png">
+    <meta property="og:url" content="https://techwave.com">
+    <meta property="og:type" content="website">
+    <link rel="shortcut icon" href="https://example.com/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <style>
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
+        
+        /* Custom Styles */
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        .navbar {
+            background-color: transparent;
+            transition: background-color 0.3s ease-in-out;
+        }
+        
+        .navbar.scrolled {
+            background-color: #333;
+        }
+        
+        .hero {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: linear-gradient(to bottom, #6c5ce7, #4f6d7a);
+            color: #fff;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .services {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+        
+        .service {
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        
+        .service:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .testimonials {
+            padding: 20px;
+            background-color: #f7f7f7;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonials .blockquote {
+            padding: 20px;
+            border-left: 10px solid #6c5ce7;
+        }
+        
+        .testimonials .blockquote h5 {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .contact {
+            padding: 20px;
+            background-color: #f7f7f7;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .contact form input {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact form button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            background-color: #6c5ce7;
+            color: #fff;
+            cursor: pointer;
+        }
+        
+        .contact form button:hover {
+            background-color: #4f6d7a;
+        }
+        
+        .footer {
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+        }
+        
+        .animate-fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+        
+        .animate-fade-up.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .animate-fade-left {
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+        
+        .animate-fade-left.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .animate-fade-right {
+            opacity: 0;
+            transform: translateX(20px);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+        
+        .animate-fade-right.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .glass-morphism {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .text-gradient {
+            background-image: linear-gradient(to bottom, #6c5ce7, #4f6d7a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar sticky top-0 z-10">
+        <div class="container mx-auto px-4 pt-4 flex justify-between items-center">
+            <a href="#" class="text-lg font-bold text-white hover:text-gray-200 transition ease-in-out duration-300">TechWave Solutions</a>
+            <button class="md:hidden navbar-toggle border-0 p-0 focus:outline-none focus:shadow-none">
+                <svg class="w-6 h-6 text-white" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                    <path d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+            <ul class="hidden md:flex items-center">
+                <li class="mr-6"><a href="#hero" class="text-gray-200 hover:text-white transition ease-in-out duration-300">Home</a></li>
+                <li class="mr-6"><a href="#about" class="text-gray-200 hover:text-white transition ease-in-out duration-300">About Us</a></li>
+                <li class="mr-6"><a href="#services" class="text-gray-200 hover:text-white transition ease-in-out duration-300">Services</a></li>
+                <li class="mr-6"><a href="#testimonials" class="text-gray-200 hover:text-white transition ease-in-out duration-300">Testimonials</a></li>
+                <li class="mr-6"><a href="#contact" class="text-gray-200 hover:text-white transition ease-in-out duration-300">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+    <header id="hero" class="hero relative">
+        <div class="container mx-auto px-4 pt-4 pb-6 flex justify-center items-center">
+            <h1 class="text-4xl font-bold text-gray-100 text-gradient">Custom Software Development and Cloud Solutions</h1>
+            <button class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-2 px-4 rounded">Get Started</button>
+        </div>
+    </header>
+    <main>
+        <section id="about" class="animate-fade-up show py-20">
+            <div class="container mx-auto px-4 pt-4 pb-6">
+                <h2 class="text-3xl font-bold text-gray-900">About Us</h2>
+                <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+            </div>
+        </section>
+        <section id="services" class="py-20">
+            <div class="container mx-auto px-4 pt-4 pb-6">
+                <h2 class="text-3xl font-bold text-gray-900">Our Services</h2>
+                <div class="services">
+                    <div class="service animate-fade-left show bg-white rounded shadow-md p-6 m-4">
+                        <h3 class="text-2xl font-bold text-gray-900">Software Development</h3>
+                        <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+                    </div>
+                    <div class="service animate-fade-left show bg-white rounded shadow-md p-6 m-4">
+                        <h3 class="text-2xl font-bold text-gray-900">Cloud Solutions</h3>
+                        <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+                    </div>
+                    <div class="service animate-fade-left show bg-white rounded shadow-md p-6 m-4">
+                        <h3 class="text-2xl font-bold text-gray-900">IT Consulting</h3>
+                        <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="testimonials" class="py-20">
+            <div class="container mx-auto px-4 pt-4 pb-6">
+                <h2 class="text-3xl font-bold text-gray-900">What Our Clients Say</h2>
+                <div class="testimonials">
+                    <blockquote class="bg-white rounded shadow-md p-6 m-4">
+                        <h5 class="text-2xl font-bold text-gray-900">John Doe</h5>
+                        <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+                    </blockquote>
+                    <blockquote class="bg-white rounded shadow-md p-6 m-4">
+                        <h5 class="text-2xl font-bold text-gray-900">Jane Doe</h5>
+                        <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+        <section id="contact" class="py-20">
+            <div class="container mx-auto px-4 pt-4 pb-6">
+                <h2 class="text-3xl font-bold text-gray-900">Get in Touch</h2>
+                <form>
+                    <input type="text" placeholder="Name" class="w-full p-2 mb-4 border border-gray-400 rounded">
+                    <input type="email" placeholder="Email" class="w-full p-2 mb-4 border border-gray-400 rounded">
+                    <textarea placeholder="Message" class="w-full p-2 mb-4 border border-gray-400 rounded"></textarea>
+                    <button class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-2 px-4 rounded">Send</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer id="footer" class="footer py-6">
+        <div class="container mx-auto px-4 pt-4 pb-6 flex justify-between items-center">
+            <p class="text-gray-200">&copy; 2023 TechWave Solutions</p>
+            <ul class="flex items-center">
+                <li class="mr-4"><a href="#" class="text-gray-200 hover:text-white transition ease-in-out duration-300">Terms of Service</a></li>
+                <li class="mr-4"><a href="#" class="text-gray-200 hover:text-white transition ease-in-out duration-300">Privacy Policy</a></li>
+                <li class="mr-4"><a href="#" class="text-gray-200 hover:text-white transition ease-in-out duration-300">Contact Us</a></li>
+            </ul>
+        </div>
+    </footer>
+    <button id="back-to-top" class="fixed bottom-4 right-4 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-2 px-4 rounded">Back to Top</button>
+
+    <script src='https://cdn.tailwindcss.com'></script>
+    <script>
+        const navbar = document.querySelector('.navbar');
+        const backToTop = document.getElementById('back-to-top');
+        const hero = document.querySelector('#hero');
+        const about = document.querySelector('#about');
+        const services = document.querySelector('.services');
+        const testimonials = document.querySelector('#testimonials');
+        const contact = document.querySelector('#contact');
+
+        document.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            if (window.scrollY > hero.offsetHeight) {
+                about.classList.add('animate-fade-up');
+                about.classList.add('show');
+            }
+            if (window.scrollY > about.offsetHeight + hero.offsetHeight) {
+                services.classList.add('animate-fade-up');
+                services.classList.add('show');
+            }
+            if (window.scrollY > testimonials.offsetHeight + about.offsetHeight + hero.offsetHeight) {
+                testimonials.classList.add('animate-fade-up');
+                testimonials.classList.add('show');
+            }
+            if (window.scrollY > contact.offsetHeight + testimonials.offsetHeight + about.offsetHeight + hero.offsetHeight) {
+                contact.classList.add('animate-fade-up');
+                contact.classList.add('show');
+            }
+            if (window.scrollY > document.body.offsetHeight / 2) {
+                backToTop.classList.remove('hidden');
+            } else {
+                backToTop.classList.add('hidden');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        document.querySelectorAll('.service').forEach((service, index) => {
+            const observer = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    service.classList.add('animate-fade-left');
+                    service.classList.add('show');
+                }
+            }, { threshold: 0.5 });
+            observer.observe(service);
+        });
+    </script>
+</body>
+</html>
