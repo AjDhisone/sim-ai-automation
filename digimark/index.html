@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="title" content="digimark">
+  <meta name="description" content="we help brands grow online">
+  <title>digimark</title>
+  <link rel="stylesheet" href="https://cdn.tailwindcss.com">
+  <style>
+    /* Scroll animations */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-in-up.animate-on-scroll {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-in-left {
+      opacity: 0;
+      transform: translateX(-30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-in-left.animate-on-scroll {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .fade-in-right {
+      opacity: 0;
+      transform: translateX(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-in-right.animate-on-scroll {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .visible {
+      opacity: 1;
+      transform: translate(0);
+    }
+  </style>
+  <style>
+    /* Smooth scroll behavior */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+  <style>
+    /* Staggered animation delays */
+    .service-card {
+      transition-delay: calc(0.1s + 0.1s * var(--index));
+    }
+  </style>
+</head>
+<body class="antialiased font-sans text-gray-700">
+  <header class="bg-purple-500 text-white p-8">
+    <nav class="container mx-auto flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold">digimark</a>
+      <ul class="flex items-center">
+        <li class="mx-4"><a href="#" class="text-white hover:text-gray-300">About</a></li>
+        <li class="mx-4"><a href="#" class="text-white hover:text-gray-300">Services</a></li>
+        <li class="mx-4"><a href="#" class="text-white hover:text-gray-300">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section class="relative min-h-screen bg-gradient-to-r from-purple-400 to-pink-500">
+    <div class="container mx-auto p-8 md:p-12 lg:p-16 flex flex-col justify-center items-center">
+      <h1 class="text-5xl font-bold mb-4 text-white">Grow Your Brand Online</h1>
+      <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full">Get Started</button>
+    </div>
+  </section>
+  <section class="bg-white p-8 md:p-12 lg:p-16">
+    <h2 class="text-3xl font-bold mb-4">About Us</h2>
+    <p class="mb-4">We help brands grow online.</p>
+  </section>
+  <section class="bg-white p-8 md:p-12 lg:p-16">
+    <h2 class="text-3xl font-bold mb-4">Services</h2>
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      @for($i=0; $i<3; $i++)
+        <div class="bg-white shadow-lg rounded-lg p-8 md:p-12 lg:p-16 service-card animate-on-scroll" style="--index: {{$i}}">
+          <h3 class="text-2xl font-bold mb-2">Service {{$i+1}}</h3>
+          <p class="mb-4">This is service {{$i+1}}.</p>
+        </div>
+      @endfor
+    </div>
+  </section>
+  <section class="bg-white p-8 md:p-12 lg:p-16">
+    <h2 class="text-3xl font-bold mb-4">Testimonials</h2>
+    <div class="container mx-auto p-8 md:p-12 lg:p-16">
+      <blockquote class="bg-gray-100 rounded-lg p-8">
+        <p>This is a testimonial.</p>
+        <footer class="text-right text-gray-600">John Doe</footer>
+      </blockquote>
+    </div>
+  </section>
+  <section class="bg-white p-8 md:p-12 lg:p-16">
+    <h2 class="text-3xl font-bold mb-4">Contact Us</h2>
+    <form class="container mx-auto p-8 md:p-12 lg:p-16">
+      <div class="mb-4">
+        <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name</label>
+        <input type="text" id="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+      </div>
+      <div class="mb-4">
+        <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+        <input type="email" id="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+      </div>
+      <div class="mb-4">
+        <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Message</label>
+        <textarea id="message" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" rows="4"></textarea>
+      </div>
+      <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full">Send</button>
+    </form>
+  </section>
+  <footer class="bg-gray-900 text-white p-8 md:p-12 lg:p-16">
+    <div class="container mx-auto flex flex-col items-center">
+      <p class="text-sm mb-4">digimark &copy; 2023</p>
+      <ul class="flex items-center">
+        <li class="mx-4"><a href="#" class="text-white hover:text-gray-300">LinkedIn</a></li>
+        <li class="mx-4"><a href="#" class="text-white hover:text-gray-300">Twitter</a></li>
+        <li class="mx-4"><a href="#" class="text-white hover:text-gray-300">Facebook</a></li>
+      </ul>
+    </div>
+  </footer>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1,
+    });
+    const animateOnScrollElements = document.querySelectorAll('.animate-on-scroll');
+    animateOnScrollElements.forEach((element, index) => {
+      observer.observe(element);
+      element.style.transitionDelay = `calc(0.1s + 0.1s * ${index})`;
+    });
+  </script>
+</body>
+</html>
