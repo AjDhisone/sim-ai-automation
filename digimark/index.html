@@ -3,143 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="title" content="digimark - Digital Marketing Solutions">
+    <meta name="title" content="digimark | Digital Marketing">
     <meta name="description" content="We help brands grow online">
-    <title>digimark - Digital Marketing Solutions</title>
+    <title>digimark | Digital Marketing</title>
+    <link rel="stylesheet" href="https://cdn.tailwindcss.com">
+</head>
+<body class="scroll-smooth bg-white dark:bg-gray-800 h-screen">
     <style>
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
+
         .fade-in-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         .fade-in-left {
-            opacity: 0;
-            transform: translateX(-30px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+        }
+        .fade-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
         }
         .fade-in-right {
-            opacity: 0;
-            transform: translateX(30px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out;
         }
-        .visible {
+        .fade-in-right.visible {
             opacity: 1;
-            transform: translate(0);
+            transform: translateX(0);
         }
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translate(-50%, -50%);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+
+        .staggered {
+            animation: stagger 0.5s;
+            animation-fill-mode: backwards;
+        }
+        @keyframes stagger {
+            0% {
+                animation-delay: 0s;
+            }
+            100% {
+                animation-delay: 0.4s;
+            }
         }
     </style>
+    <section class="bg-gradient-to-r from-blue-400 to-green-400 h-screen">
+        <div class="container mx-auto p-4 md:p-6 lg:p-12 relative">
+            <h1 class="text-6xl font-bold text-white mb-4">Grow Your Online Presence</h1>
+            <p class="text-2xl text-gray-200 mb-8">We help brands succeed in the digital world</p>
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out">Get Started</button>
+        </div>
+    </section>
+    <section class="bg-white dark:bg-gray-800 p-4 md:p-6 lg:p-12">
+        <h2 class="text-4xl font-bold text-gray-800 mb-4">About Us</h2>
+        <p class="text-lg text-gray-600 mb-8">We are a team of digital marketing experts dedicated to helping businesses grow online</p>
+    </section>
+    <section class="bg-white dark:bg-gray-800 p-4 md:p-6 lg:p-12">
+        <h2 class="text-4xl font-bold text-gray-800 mb-4">Our Services</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 transition duration-300 ease-in-out" style="animation-delay: 0.1s">
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">Digital Strategy</h3>
+                <p class="text-lg text-gray-600 mb-4">Develop a winning online strategy for your business</p>
+            </div>
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 transition duration-300 ease-in-out" style="animation-delay: 0.2s">
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">Content Creation</h3>
+                <p class="text-lg text-gray-600 mb-4">Create engaging content to drive conversions</p>
+            </div>
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 transition duration-300 ease-in-out" style="animation-delay: 0.3s">
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">Social Media Management</h3>
+                <p class="text-lg text-gray-600 mb-4">Manage your social media presence and grow your online community</p>
+            </div>
+        </div>
+    </section>
+    <section class="bg-white dark:bg-gray-800 p-4 md:p-6 lg:p-12">
+        <h2 class="text-4xl font-bold text-gray-800 mb-4">Testimonials</h2>
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4">
+            <p class="text-lg text-gray-600 mb-4">"We've seen a significant increase in online presence and conversions since partnering with digimark."</p>
+            <p class="text-lg text-gray-600 mb-4">- John Doe, CEO, XYZ Corporation</p>
+        </div>
+    </section>
+    <section class="bg-white dark:bg-gray-800 p-4 md:p-6 lg:p-12">
+        <h2 class="text-4xl font-bold text-gray-800 mb-4">Contact Us</h2>
+        <form class="flex flex-col space-y-4">
+            <input type="text" class="bg-gray-100 dark:bg-gray-700 p-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" placeholder="Name">
+            <input type="email" class="bg-gray-100 dark:bg-gray-700 p-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" placeholder="Email">
+            <input type="tel" class="bg-gray-100 dark:bg-gray-700 p-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" placeholder="Phone">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out">Send Message</button>
+        </form>
+    </section>
+    <footer class="bg-gray-800 text-white p-4 md:p-6 lg:p-12">
+        <p class="text-lg text-gray-200 mb-4">digimark | Digital Marketing</p>
+        <p class="text-lg text-gray-200 mb-4">&copy; 2023 digimark. All rights reserved.</p>
+        <ul class="flex space-x-4">
+            <li><a href="#" class="text-gray-200 hover:text-gray-100 transition duration-300 ease-in-out">Twitter</a></li>
+            <li><a href="#" class="text-gray-200 hover:text-gray-100 transition duration-300 ease-in-out">Facebook</a></li>
+            <li><a href="#" class="text-gray-200 hover:text-gray-100 transition duration-300 ease-in-out">Instagram</a></li>
+        </ul>
+    </footer>
     <script>
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
                 }
             });
-        }, {
-            threshold: 0.1,
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.animate-on-scroll').forEach((element) => {
+            observer.observe(element);
         });
-        document.querySelectorAll('.animate-on-scroll').forEach((el) => {
-            observer.observe(el);
-        });
-        document.querySelector('html').style.scrollBehavior = 'smooth';
     </script>
-    <link rel="stylesheet" href="https://cdn.tailwindcss.com">
-</head>
-<body class="bg-gray-100 font-sans leading-relaxed">
-    <header class="bg-gray-900 py-4 text-white">
-        <nav class="container mx-auto flex justify-between items-center">
-            <h1 class="text-3xl font-bold">digimark</h1>
-            <ul class="flex items-center space-x-4">
-                <li><a href="#" class="text-gray-300 hover:text-white">Home</a></li>
-                <li><a href="#" class="text-gray-300 hover:text-white">About</a></li>
-                <li><a href="#" class="text-gray-300 hover:text-white">Services</a></li>
-                <li><a href="#" class="text-gray-300 hover:text-white">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section class="h-screen bg-gradient-to-r from-indigo-500 to-purple-800">
-            <div class="container mx-auto p-12 flex flex-col justify-center items-center text-center">
-                <h1 class="text-4xl font-bold text-white mb-4">Transform Your Brand Online</h1>
-                <p class="text-gray-300 mb-8">Expert digital marketing solutions for businesses</p>
-                <button class="bg-gradient-to-r from-indigo-500 to-purple-800 hover:bg-gradient-to-l from-indigo-500 to-purple-800 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out">Get Started</button>
-            </div>
-            <div class="absolute top-0 left-0 w-full h-full bg-gray-900 opacity-50"></div>
-        </section>
-        <section class="py-12 bg-white">
-            <div class="container mx-auto p-4">
-                <h2 class="text-3xl font-bold mb-4">About Us</h2>
-                <p class="text-gray-600 mb-8">We are a digital marketing agency with a passion for helping businesses grow online.</p>
-            </div>
-        </section>
-        <section class="py-12 bg-white">
-            <div class="container mx-auto p-4">
-                <h2 class="text-3xl font-bold mb-4">Services</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div class="animate-on-scroll shadow-lg rounded-lg p-4 bg-white hover:shadow-2xl hover:scale-105 transition duration-300 ease-in-out">
-                        <h3 class="text-2xl font-bold mb-2">Digital Marketing Strategy</h3>
-                        <p class="text-gray-600 mb-4">Our expert team will help you develop a customized digital marketing strategy that meets your business goals.</p>
-                    </div>
-                    <div class="animate-on-scroll shadow-lg rounded-lg p-4 bg-white hover:shadow-2xl hover:scale-105 transition duration-300 ease-in-out delay-100">
-                        <h3 class="text-2xl font-bold mb-2">Social Media Management</h3>
-                        <p class="text-gray-600 mb-4">We will help you create and implement a social media strategy that engages your target audience.</p>
-                    </div>
-                    <div class="animate-on-scroll shadow-lg rounded-lg p-4 bg-white hover:shadow-2xl hover:scale-105 transition duration-300 ease-in-out delay-200">
-                        <h3 class="text-2xl font-bold mb-2">Content Creation</h3>
-                        <p class="text-gray-600 mb-4">Our team of experts will create high-quality content that resonates with your target audience.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="py-12 bg-white">
-            <div class="container mx-auto p-4">
-                <h2 class="text-3xl font-bold mb-4">Testimonials</h2>
-                <div class="flex flex-col items-center">
-                    <div class="animate-on-scroll shadow-lg rounded-lg p-4 bg-white hover:shadow-2xl hover:scale-105 transition duration-300 ease-in-out delay-300">
-                        <p class="text-gray-600 mb-4">"digimark has been a game-changer for our business. Their expertise in digital marketing has helped us reach new heights."</p>
-                        <p class="text-gray-600 mb-4">- John Doe, CEO</p>
-                    </div>
-                    <div class="animate-on-scroll shadow-lg rounded-lg p-4 bg-white hover:shadow-2xl hover:scale-105 transition duration-300 ease-in-out delay-400">
-                        <p class="text-gray-600 mb-4">"digimark's team is knowledgeable, creative, and always available to help. I highly recommend their services."</p>
-                        <p class="text-gray-600 mb-4">- Jane Doe, Marketing Manager</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="py-12 bg-white">
-            <div class="container mx-auto p-4">
-                <h2 class="text-3xl font-bold mb-4">Contact Us</h2>
-                <form>
-                    <div class="mb-4">
-                        <label for="name" class="block text-gray-600 mb-2">Name:</label>
-                        <input type="text" id="name" class="block w-full p-2 bg-gray-100 rounded-lg" placeholder="Your Name">
-                    </div>
-                    <div class="mb-4">
-                        <label for="email" class="block text-gray-600 mb-2">Email:</label>
-                        <input type="email" id="email" class="block w-full p-2 bg-gray-100 rounded-lg" placeholder="Your Email">
-                    </div>
-                    <div class="mb-4">
-                        <label for="message" class="block text-gray-600 mb-2">Message:</label>
-                        <textarea id="message" class="block w-full p-2 bg-gray-100 rounded-lg" placeholder="Your Message"></textarea>
-                    </div>
-                    <button class="bg-gradient-to-r from-indigo-500 to-purple-800 hover:bg-gradient-to-l from-indigo-500 to-purple-800 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out">Send Message</button>
-                </form>
-            </div>
-        </section>
-        <footer class="bg-gray-900 text-white py-4">
-            <div class="container mx-auto p-4">
-                <ul class="flex items-center space-x-4">
-                    <li><a href="#" class="text-gray-300 hover:text-white">Terms of Service</a></li>
-                    <li><a href="#" class="text-gray-300 hover:text-white">Privacy Policy</a></li>
-                </ul>
-                <p class="text-gray-300 mt-4">digimark 2023. All rights reserved.</p>
-            </div>
-        </footer>
-    </main>
 </body>
 </html>
