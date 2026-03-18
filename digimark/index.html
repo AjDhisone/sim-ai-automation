@@ -4,126 +4,179 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="title" content="digimark">
-  <meta name="description" content="we help brands grow online">
+  <meta name="description" content="We help brands grow online">
   <title>digimark</title>
-  <link rel="stylesheet" href="https://cdn.tailwindcss.com">
   <style>
-    /* Scroll animations */
-    .fade-in-up {
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+    :root {
+      --primary: #03A9F4;
+      --secondary: #FFC107;
+      --dark: #333;
+    }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      transition: background-color 0.3s ease-in-out;
+    }
+    .gradient {
+      background: linear-gradient(45deg, #03A9F4, #F7DC6F);
+      background-size: 300px 300px;
+    }
+    .hero {
+      height: 100vh;
+      background-size: cover;
+      background-position: center;
+      background-image: linear-gradient(45deg, #03A9F4, #F7DC6F), url('https://picsum.photos/2000/1000');
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+    .hero .heading {
+      font-size: 48px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero .subtext {
+      font-size: 18px;
+      color: #ccc;
+      margin-bottom: 40px;
+    }
+    .hero .cta {
+      background: var(--primary);
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+    .hero .cta:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    .section {
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 20px;
+    }
+    .service {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+    .service:hover {
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      transform: scale(1.05);
+    }
+    .testimonials {
+      background: var(--dark);
+      color: #fff;
+      padding: 20px;
+    }
+    .testimonial {
+      background: var(--primary);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+    .testimonial .text {
+      font-size: 18px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .testimonial .author {
+      font-size: 14px;
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+    .contact {
+      padding: 40px;
+      background: #f7f7f7;
+    }
+    .contact .form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .contact .form input {
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      width: 100%;
+    }
+    .contact .form input:focus {
+      outline: none;
+      border: 1px solid var(--primary);
+      border-radius: 10px;
+    }
+    .contact .form button {
+      background: var(--primary);
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+    .contact .form button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    .footer {
+      background: var(--dark);
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    .footer .social {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .footer .social a {
+      margin: 0 10px;
+      transition: transform 0.3s ease-in-out;
+    }
+    .footer .social a:hover {
+      transform: scale(1.2);
+    }
+    .animate-on-scroll {
       opacity: 0;
       transform: translateY(30px);
       transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     }
-    .fade-in-up.animate-on-scroll {
+    .animate-on-scroll.visible {
       opacity: 1;
       transform: translateY(0);
     }
-    .fade-in-left {
-      opacity: 0;
-      transform: translateX(-30px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    @media (max-width: 768px) {
+      .services {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
-    .fade-in-left.animate-on-scroll {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    .fade-in-right {
-      opacity: 0;
-      transform: translateX(30px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    }
-    .fade-in-right.animate-on-scroll {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    .visible {
-      opacity: 1;
-      transform: translate(0);
+    @media (max-width: 480px) {
+      .services {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
-  <style>
-    /* Smooth scroll behavior */
-    html {
-      scroll-behavior: smooth;
-    }
-  </style>
-  <style>
-    /* Staggered animation delays */
-    .service-card {
-      transition-delay: calc(0.1s + 0.1s * var(--index));
-    }
-  </style>
-</head>
-<body class="antialiased font-sans text-gray-700">
-  <header class="bg-purple-500 text-white p-8">
-    <nav class="container mx-auto flex justify-between items-center">
-      <a href="#" class="text-2xl font-bold">digimark</a>
-      <ul class="flex items-center">
-        <li class="mx-4"><a href="#" class="text-white hover:text-gray-300">About</a></li>
-        <li class="mx-4"><a href="#" class="text-white hover:text-gray-300">Services</a></li>
-        <li class="mx-4"><a href="#" class="text-white hover:text-gray-300">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-  <section class="relative min-h-screen bg-gradient-to-r from-purple-400 to-pink-500">
-    <div class="container mx-auto p-8 md:p-12 lg:p-16 flex flex-col justify-center items-center">
-      <h1 class="text-5xl font-bold mb-4 text-white">Grow Your Brand Online</h1>
-      <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full">Get Started</button>
-    </div>
-  </section>
-  <section class="bg-white p-8 md:p-12 lg:p-16">
-    <h2 class="text-3xl font-bold mb-4">About Us</h2>
-    <p class="mb-4">We help brands grow online.</p>
-  </section>
-  <section class="bg-white p-8 md:p-12 lg:p-16">
-    <h2 class="text-3xl font-bold mb-4">Services</h2>
-    <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      @for($i=0; $i<3; $i++)
-        <div class="bg-white shadow-lg rounded-lg p-8 md:p-12 lg:p-16 service-card animate-on-scroll" style="--index: {{$i}}">
-          <h3 class="text-2xl font-bold mb-2">Service {{$i+1}}</h3>
-          <p class="mb-4">This is service {{$i+1}}.</p>
-        </div>
-      @endfor
-    </div>
-  </section>
-  <section class="bg-white p-8 md:p-12 lg:p-16">
-    <h2 class="text-3xl font-bold mb-4">Testimonials</h2>
-    <div class="container mx-auto p-8 md:p-12 lg:p-16">
-      <blockquote class="bg-gray-100 rounded-lg p-8">
-        <p>This is a testimonial.</p>
-        <footer class="text-right text-gray-600">John Doe</footer>
-      </blockquote>
-    </div>
-  </section>
-  <section class="bg-white p-8 md:p-12 lg:p-16">
-    <h2 class="text-3xl font-bold mb-4">Contact Us</h2>
-    <form class="container mx-auto p-8 md:p-12 lg:p-16">
-      <div class="mb-4">
-        <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name</label>
-        <input type="text" id="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
-      </div>
-      <div class="mb-4">
-        <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email</label>
-        <input type="email" id="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
-      </div>
-      <div class="mb-4">
-        <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Message</label>
-        <textarea id="message" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" rows="4"></textarea>
-      </div>
-      <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full">Send</button>
-    </form>
-  </section>
-  <footer class="bg-gray-900 text-white p-8 md:p-12 lg:p-16">
-    <div class="container mx-auto flex flex-col items-center">
-      <p class="text-sm mb-4">digimark &copy; 2023</p>
-      <ul class="flex items-center">
-        <li class="mx-4"><a href="#" class="text-white hover:text-gray-300">LinkedIn</a></li>
-        <li class="mx-4"><a href="#" class="text-white hover:text-gray-300">Twitter</a></li>
-        <li class="mx-4"><a href="#" class="text-white hover:text-gray-300">Facebook</a></li>
-      </ul>
-    </div>
-  </footer>
-  <script src="https://cdn.tailwindcss.com"></script>
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -131,14 +184,92 @@
           entry.target.classList.add('visible');
         }
       });
-    }, {
-      threshold: 0.1,
-    });
-    const animateOnScrollElements = document.querySelectorAll('.animate-on-scroll');
-    animateOnScrollElements.forEach((element, index) => {
-      observer.observe(element);
-      element.style.transitionDelay = `calc(0.1s + 0.1s * ${index})`;
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+      observer.observe(el);
     });
   </script>
+  <style>
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-in-left {
+      opacity: 0;
+      transform: translateX(-30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-in-right {
+      opacity: 0;
+      transform: translateX(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+  </style>
+  <style>
+    scroll-behavior: smooth;
+  </style>
+  <link rel="stylesheet" href="https://cdn.tailwindcss.com">
+</head>
+<body class="bg-gray-100">
+  <header class="gradient">
+    <div class="hero">
+      <h1 class="heading text-6xl">digimark</h1>
+      <p class="subtext text-lg">We help brands grow online</p>
+      <button class="cta">Get Started</button>
+    </div>
+  </header>
+  <main>
+    <section class="section py-20">
+      <h2 class="text-4xl">About Us</h2>
+      <p class="text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+    </section>
+    <section class="section py-20">
+      <h2 class="text-4xl">Services</h2>
+      <div class="services animate-on-scroll">
+        <div class="service animate-on-scroll fade-in-up" style="animation-delay: 0s;">
+          <h3 class="text-2xl">Service 1</h3>
+          <p class="text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="service animate-on-scroll fade-in-right" style="animation-delay: 0.1s;">
+          <h3 class="text-2xl">Service 2</h3>
+          <p class="text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="service animate-on-scroll fade-in-left" style="animation-delay: 0.2s;">
+          <h3 class="text-2xl">Service 3</h3>
+          <p class="text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+    </section>
+    <section class="section py-20">
+      <h2 class="text-4xl">Testimonials</h2>
+      <div class="testimonial animate-on-scroll">
+        <p class="text-lg text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+        <p class="text-lg text-white">- John Doe</p>
+      </div>
+      <div class="testimonial animate-on-scroll">
+        <p class="text-lg text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+        <p class="text-lg text-white">- Jane Doe</p>
+      </div>
+    </section>
+    <section class="section py-20">
+      <h2 class="text-4xl">Contact</h2>
+      <form class="form animate-on-scroll">
+        <input type="text" placeholder="Name" class="w-full p-4 mb-4" />
+        <input type="email" placeholder="Email" class="w-full p-4 mb-4" />
+        <input type="phone" placeholder="Phone" class="w-full p-4 mb-4" />
+        <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded">Send Message</button>
+      </form>
+    </section>
+  </main>
+  <footer class="footer py-10">
+    <div class="social animate-on-scroll">
+      <a href="#" class="text-xl hover:text-orange-500">Facebook</a>
+      <a href="#" class="text-xl hover:text-orange-500">Twitter</a>
+      <a href="#" class="text-xl hover:text-orange-500">Instagram</a>
+    </div>
+    <p class="text-lg text-white">digimark | &copy; 2023</p>
+  </footer>
+  <script src="https://cdn.tailwindcss.com"></script>
 </body>
 </html>
