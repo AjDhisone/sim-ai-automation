@@ -3,316 +3,263 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>digimark</title>
-    <meta name="description" content="We help brands grow online">
-    <meta property="og:title" content="digimark">
-    <meta property="og:description" content="We help brands grow online">
-    <meta property="og:image" content="https://example.com/digimark-logo.jpg">
+    <meta name="description" content="Digimark - Growing brands online">
+    <meta name="keywords" content="digital marketing, online growth, branding">
+    <meta property="og:title" content="Digimark">
+    <meta property="og:description" content="Growing brands online">
+    <meta property="og:image" content="https://example.com/og-image.jpg">
+    <meta property="og:url" content="https://digimark.com">
+    <link rel="icon" href="https://example.com/favicon.ico">
+    <title>Digimark</title>
+    <script src='https://cdn.tailwindcss.com'></script>
     <style>
-        /* Custom styles */
         body {
-            font-family: 'Open Sans', sans-serif;
-            margin: 0;
-            padding: 0;
+            font-family: Arial, sans-serif;
         }
-        .navbar {
-            background-color: transparent;
-            padding: 1rem;
-            transition: background-color 0.3s ease-in-out;
-        }
-        .navbar.scrolled {
-            background-color: #333;
-        }
-        .hero {
-            background-image: linear-gradient(to bottom right, #45a3e6, #ff99cc);
+        
+        .gradient-overlay {
+            background-image: linear-gradient(to bottom, #007bff, #0069d9);
             background-size: 100% 300px;
             background-position: 0% 100%;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-            font-size: 2rem;
+            transition: background-position 0.3s ease-in-out;
         }
-        .hero h1 {
-            font-size: 4rem;
-            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        
+        .gradient-overlay.animate {
+            background-position: 0% 0%;
         }
-        .about {
-            background-image: linear-gradient(to bottom, #333, #555);
-            background-size: 100% 300px;
-            background-position: 0% 100%;
-            padding: 5rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-        }
-        .about h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-        .services {
-            padding: 5rem;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .service {
-            background-color: #fff;
+        
+        .glass-morphism {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 1rem;
             padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin: 2rem;
+        }
+        
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(to right, #007bff, #0069d9);
+        }
+        
+        .card {
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 1rem;
             transition: transform 0.3s ease-in-out;
         }
-        .service:hover {
+        
+        .card:hover {
             transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
-        .testimonial {
-            padding: 5rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #f7f7f7;
+        
+        .animate-fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
         }
-        .testimonial h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
+        
+        .animate-fade-up.animate {
+            opacity: 1;
+            transform: translateY(0);
         }
-        .contact {
-            padding: 5rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        
+        .animate-fade-left {
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
         }
-        .contact form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        
+        .animate-fade-left.animate {
+            opacity: 1;
+            transform: translateX(0);
         }
-        .contact form input {
-            padding: 1rem;
-            margin-bottom: 2rem;
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        
+        .animate-fade-right {
+            opacity: 0;
+            transform: translateX(20px);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
         }
-        .contact form button {
-            padding: 1rem 2rem;
-            background-color: #333;
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        
+        .animate-fade-right.animate {
+            opacity: 1;
+            transform: translateX(0);
         }
-        .contact form button:hover {
-            background-color: #555;
-        }
-        .footer {
-            padding: 2rem;
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-        }
-        @media (max-width: 768px) {
-            .navbar {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                background-color: #333;
-                padding: 1rem;
-            }
-            .hamburger {
-                display: block;
-            }
-            .close {
-                display: none;
-            }
-        }
-        @media (max-width: 480px) {
-            .hero {
-                height: 600px;
-            }
-            .hero h1 {
-                font-size: 3rem;
-            }
-            .about {
-                padding: 3rem;
-                height: 600px;
-            }
-            .about h2 {
-                font-size: 1.5rem;
-            }
-            .services {
-                padding: 3rem;
-            }
-            .service {
-                margin: 1rem;
-                padding: 1.5rem;
-            }
-            .testimonial {
-                padding: 3rem;
-                height: 600px;
-            }
-            .testimonial h3 {
-                font-size: 1.5rem;
-            }
-            .contact {
-                padding: 3rem;
-                height: 600px;
-            }
-            .contact form {
-                padding: 1rem;
-                margin-bottom: 2rem;
-            }
-            .contact form input {
-                padding: 0.5rem;
-                margin-bottom: 1rem;
-            }
-            .contact form button {
-                padding: 0.5rem 1rem;
-            }
-            .footer {
-                padding: 1rem;
-            }
-        }
-        /* End of custom styles */
-        /* Tailwind classes */
-        @tailwind base;
-        @tailwind components;
-        @tailwind utilities;
     </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar bg-base-100 flex justify-between items-center py-4">
-        <a href="#" class="text-lg font-bold">digimark</a>
-        <button class="hamburger md:hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 011-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 011-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 011-1z" clip-rule="evenodd" />
-            </svg>
-        </button>
-        <button class="close md:hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M5 4a1 1 0 00-1 1v3.203a1 1 0 001 1.674l3 3a1 1 0 001 1v2.165a1 1 0 01-2 1H5a1 1 0 00-1-1v-3.203a1 1 0 00-1-1.674l-3-3a1 1 0 00-1-1v-2.165a1 1 0 01-2-1H3a1 1 0 00-1-1H1a1 1 0 00-1 1v3.203a1 1 0 001 1.674l3 3a1 1 0 001 1v2.165a1 1 0 00-2 1H5a1 1 0 00-1-1v-3.203a1 1 0 00-1-1.674l-3-3a1 1 0 00-1-1v-2.165a1 1 0 01-2-1H3a1 1 0 00-1-1H1a1 1 0 00-1 1v3.203a1 1 0 001 1.674l3 3a1 1 0 001 1v2.165a1 1 0 00-2 1z" clip-rule="evenodd" />
-            </svg>
-        </button>
-        <ul class="hidden md:flex items-center space-x-4">
-            <li><a href="#" class="text-gray-600 hover:text-gray-900">About</a></li>
-            <li><a href="#" class="text-gray-600 hover:text-gray-900">Services</a></li>
-            <li><a href="#" class="text-gray-600 hover:text-gray-900">Testimonials</a></li>
-            <li><a href="#" class="text-gray-600 hover:text-gray-900">Contact</a></li>
-        </ul>
+    <nav class="sticky top-0 bg-transparent z-10 glass-morphism shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-lg text-white font-bold">Digimark</a>
+            <button class="lg:hidden" onclick="toggleNavbar()">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+            <ul class="hidden lg:flex lg:items-center lg:space-x-4">
+                <li><a href="#hero" class="text-white hover:text-gray-300 transition duration-300 ease-in-out">Home</a></li>
+                <li><a href="#about" class="text-white hover:text-gray-300 transition duration-300 ease-in-out">About Us</a></li>
+                <li><a href="#services" class="text-white hover:text-gray-300 transition duration-300 ease-in-out">Services</a></li>
+                <li><a href="#testimonials" class="text-white hover:text-gray-300 transition duration-300 ease-in-out">Testimonials</a></li>
+                <li><a href="#contact" class="text-white hover:text-gray-300 transition duration-300 ease-in-out">Contact</a></li>
+            </ul>
+        </div>
     </nav>
-    <!-- Hero -->
-    <div class="hero relative">
-        <h1 class="text-5xl font-bold text-gray-900">Welcome to digimark</h1>
-        <a href="#" class="bg-orange-500 hover:bg-orange-700 text-gray-200 font-bold py-2 px-4 rounded mt-4">Get Started</a>
-    </div>
-    <!-- About Us -->
-    <div class="about bg-gray-100 py-20">
-        <h2 class="text-4xl font-bold text-gray-900 mb-4">About Us</h2>
-        <p class="text-lg text-gray-600 mb-4">We help brands grow online.</p>
-    </div>
-    <!-- Services -->
-    <div class="services py-20">
-        <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div class="service bg-gray-100 shadow-md rounded-md p-4">
-                <h3 class="text-lg font-bold text-gray-900 mb-2">Service 1</h3>
-                <p class="text-lg text-gray-600 mb-4">Description of Service 1.</p>
-            </div>
-            <div class="service bg-gray-100 shadow-md rounded-md p-4">
-                <h3 class="text-lg font-bold text-gray-900 mb-2">Service 2</h3>
-                <p class="text-lg text-gray-600 mb-4">Description of Service 2.</p>
-            </div>
-            <div class="service bg-gray-100 shadow-md rounded-md p-4">
-                <h3 class="text-lg font-bold text-gray-900 mb-2">Service 3</h3>
-                <p class="text-lg text-gray-600 mb-4">Description of Service 3.</p>
-            </div>
+    <header id="hero" class="h-screen bg-cover bg-center bg-no-repeat" style="background-image: url('https://example.com/hero.jpg')">
+        <div class="container mx-auto px-4 pt-16">
+            <h1 class="text-5xl text-white text-gradient">Digimark</h1>
+            <p class="text-lg text-white">We help brands grow online</p>
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">Get Started</button>
         </div>
-    </div>
-    <!-- Testimonials -->
-    <div class="testimonial py-20">
-        <h2 class="text-4xl font-bold text-gray-900 mb-4">What Our Clients Say</h2>
-        <div class="flex flex-wrap justify-center">
-            <div class="w-1/2 md:w-1/3 lg:w-1/4 p-4 mb-4">
-                <p class="text-lg text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p class="text-lg font-bold text-gray-900">John Doe</p>
+    </header>
+    <main>
+        <section id="about" class="py-16 bg-gray-100">
+            <div class="container mx-auto px-4 pt-16">
+                <h2 class="text-3xl text-gray-800">About Us</h2>
+                <p class="text-lg text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
             </div>
-            <div class="w-1/2 md:w-1/3 lg:w-1/4 p-4 mb-4">
-                <p class="text-lg text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p class="text-lg font-bold text-gray-900">Jane Doe</p>
+        </section>
+        <section id="services" class="py-16">
+            <div class="container mx-auto px-4 pt-16">
+                <h2 class="text-3xl text-gray-800">Services</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="card">
+                        <h3 class="text-lg text-gray-800">Service 1</h3>
+                        <p class="text-lg text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="text-lg text-gray-800">Service 2</h3>
+                        <p class="text-lg text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="text-lg text-gray-800">Service 3</h3>
+                        <p class="text-lg text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                </div>
             </div>
+        </section>
+        <section id="testimonials" class="py-16 bg-gray-100">
+            <div class="container mx-auto px-4 pt-16">
+                <h2 class="text-3xl text-gray-800">Testimonials</h2>
+                <div class="flex flex-col items-center">
+                    <p class="text-lg text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p class="text-lg text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+        </section>
+        <section id="contact" class="py-16">
+            <div class="container mx-auto px-4 pt-16">
+                <h2 class="text-3xl text-gray-800">Contact</h2>
+                <form>
+                    <input type="text" placeholder="Name" class="w-full p-2 mb-4 border border-gray-400 rounded">
+                    <input type="email" placeholder="Email" class="w-full p-2 mb-4 border border-gray-400 rounded">
+                    <input type="text" placeholder="Phone" class="w-full p-2 mb-4 border border-gray-400 rounded">
+                    <textarea placeholder="Message" class="w-full p-2 mb-4 border border-gray-400 rounded"></textarea>
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4 pt-8">
+            <p class="text-lg text-center">&copy; 2023 Digimark</p>
+            <ul class="flex justify-center space-x-4">
+                <li><a href="#" class="text-gray-300 hover:text-white transition duration-300 ease-in-out">Terms of Use</a></li>
+                <li><a href="#" class="text-gray-300 hover:text-white transition duration-300 ease-in-out">Privacy Policy</a></li>
+            </ul>
         </div>
-    </div>
-    <!-- Contact Form -->
-    <div class="contact py-20">
-        <h2 class="text-4xl font-bold text-gray-900 mb-4">Get in Touch</h2>
-        <form>
-            <input type="text" placeholder="Name" class="bg-gray-100 border border-gray-400 p-2 w-full mb-4">
-            <input type="email" placeholder="Email" class="bg-gray-100 border border-gray-400 p-2 w-full mb-4">
-            <textarea placeholder="Message" class="bg-gray-100 border border-gray-400 p-2 w-full mb-4"></textarea>
-            <button class="bg-orange-500 hover:bg-orange-700 text-gray-200 font-bold py-2 px-4 rounded">Send</button>
-        </form>
-    </div>
-    <!-- Footer -->
-    <footer class="footer bg-gray-900 py-4 text-gray-200 text-center">
-        <p>digimark 2023. All rights reserved.</p>
-        <p>Contact us: +91 9877543119 | hello@digie.com</p>
     </footer>
-    <!-- Scroll to Top Button -->
-    <button class="fixed bottom-4 right-4 bg-orange-500 hover:bg-orange-700 text-gray-200 font-bold py-2 px-4 rounded" onclick="smoothScrollTop()">Back to Top</button>
-    <script src='https://cdn.tailwindcss.com'></script>
+    <button id="back-to-top" class="fixed bottom-4 right-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7-7 7M5 5V18M20 5H5"></path>
+        </svg>
+    </button>
     <script>
-        // IntersectionObserver-based scroll animations
-        const observer = new IntersectionObserver((entries) => {
+        function toggleNavbar() {
+            document.querySelector('nav').classList.toggle('hidden');
+        }
+        
+        function handleScroll() {
+            const sections = document.querySelectorAll('section');
+            sections.forEach((section) => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    section.classList.add('animate-fade-up');
+                } else {
+                    section.classList.remove('animate-fade-up');
+                }
+            });
+        }
+        
+        function handleScrollServices() {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                const rect = card.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    card.classList.add('animate-fade-up');
+                    setTimeout(() => {
+                        card.classList.add('animate-fade-right');
+                    }, index * 200);
+                } else {
+                    card.classList.remove('animate-fade-up', 'animate-fade-right');
+                }
+            });
+        }
+        
+        function handleIntersection(entries) {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('animate-fade-up');
+                } else {
+                    entry.target.classList.remove('animate-fade-up');
                 }
             });
-        }, {
-            threshold: 1,
+        }
+        
+        const observer = new IntersectionObserver(handleIntersection, {
+            rootMargin: '50px',
         });
-        const sections = document.querySelectorAll('.animate-fade-up');
+        
+        const sections = document.querySelectorAll('section');
         sections.forEach((section) => {
             observer.observe(section);
         });
-        // Staggered card animations
-        const services = document.querySelectorAll('.service');
-        services.forEach((service, index) => {
-            observer.observe(service);
-            setTimeout(() => {
-                service.classList.add('animate-fade-right');
-            }, index * 200);
+        
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScrollServices);
+        
+        document.querySelector('#back-to-top').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-        // Smooth scroll behavior
+        
+        const navbar = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.remove('bg-transparent');
+                navbar.classList.add('bg-gray-900');
+            } else {
+                navbar.classList.add('bg-transparent');
+                navbar.classList.remove('bg-gray-900');
+            }
+        });
+        
+        const hero = document.querySelector('#hero');
+        hero.addEventListener('scroll', () => {
+            if (window.scrollY > hero.offsetTop) {
+                hero.classList.add('gradient-overlay');
+            } else {
+                hero.classList.remove('gradient-overlay');
+            }
+        });
+        
         const links = document.querySelectorAll('a[href^="#"]');
         links.forEach((link) => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
-                smoothScrollTo(link.href);
+                const section = document.querySelector(link.getAttribute('href'));
+                section.scrollIntoView({ behavior: 'smooth' });
             });
         });
-        // Smooth scroll to top
-        function smoothScrollTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth',
-            });
-        }
-        // Smooth scroll to element
-        function smoothScrollTo(element) {
-            const elementY = document.querySelector(element).offsetTop - 100;
-            window.scrollTo({
-                top: elementY,
-                behavior: 'smooth',
-            });
-        }
     </script>
 </body>
 </html>
