@@ -16,8 +16,7 @@
             line-height: 1.6;
             color: #333;
             background-color: #f9f9f9;
-            margin: 0;
-            padding: 0;
+            scroll-behavior: smooth;
         }
         a {
             text-decoration: none;
@@ -26,101 +25,27 @@
         a:hover {
             color: #23527c;
         }
-        /* Color Scheme */
-        :root {
-            --primary-color: #3498db;
-            --secondary-color: #2ecc71;
-            --background-color: #f9f9f9;
-            --text-color: #333;
-        }
-        /* Hero Section */
+        /* Hero Section Styles */
         .hero {
-            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
-            padding: 200px 0;
-            text-align: center;
+            background-image: linear-gradient(to bottom, #34a85a, #2e865f);
+            background-size: 100% 300px;
+            background-position: 0% 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             color: #fff;
         }
         .hero h1 {
             font-size: 48px;
-            margin-bottom: 10px;
-            animation: fadeIn 1s;
+            font-weight: bold;
+            animation: fade-in 2s;
         }
         .hero p {
-            font-size: 24px;
-            animation: fadeIn 1.5s;
-        }
-        /* About Section */
-        .about {
-            padding: 100px 20px;
-            text-align: center;
-        }
-        .about h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-            animation: fadeIn 1s;
-        }
-        .about p {
             font-size: 18px;
-            margin-bottom: 20px;
-            animation: fadeIn 1.5s;
+            animation: fade-in 2s 0.5s;
         }
-        /* Services/Features Section */
-        .services {
-            padding: 100px 20px;
-            text-align: center;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        .services h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-            animation: fadeIn 1s;
-        }
-        .services ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .services li {
-            margin-bottom: 20px;
-            animation: fadeIn 1.5s;
-        }
-        .services li i {
-            font-size: 24px;
-            margin-right: 10px;
-            color: var(--secondary-color);
-        }
-        /* Contact Section */
-        .contact {
-            padding: 100px 20px;
-            text-align: center;
-            background-color: var(--primary-color);
-            color: #fff;
-        }
-        .contact h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-            animation: fadeIn 1s;
-        }
-        .contact p {
-            font-size: 18px;
-            margin-bottom: 20px;
-            animation: fadeIn 1.5s;
-        }
-        .contact a {
-            color: #fff;
-        }
-        /* Footer */
-        .footer {
-            padding: 20px 0;
-            text-align: center;
-            background-color: var(--primary-color);
-            color: #fff;
-        }
-        /* Animations */
-        @keyframes fadeIn {
+        @keyframes fade-in {
             from {
                 opacity: 0;
             }
@@ -128,43 +53,84 @@
                 opacity: 1;
             }
         }
+        /* About Section Styles */
+        .about {
+            padding: 50px;
+            text-align: center;
+        }
+        .about h2 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .about p {
+            font-size: 18px;
+        }
+        /* Services/Features Section Styles */
+        .services {
+            background-color: #f7f7f7;
+            padding: 50px;
+            text-align: center;
+        }
+        .services h2 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .services .card {
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            width: calc(33.33% - 20px);
+            display: inline-block;
+            transition: transform 0.2s;
+        }
+        .services .card:hover {
+            transform: scale(1.1);
+        }
+        .services .card h3 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        /* Contact Section Styles */
+        .contact {
+            background-image: linear-gradient(to bottom, #34a85a, #2e865f);
+            background-size: 100% 200px;
+            background-position: 0% 100%;
+            padding: 50px;
+            text-align: center;
+            color: #fff;
+        }
+        .contact h2 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .contact p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        /* Footer Styles */
+        .footer {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+            color: #fff;
+            font-size: 14px;
+        }
         /* Responsive Design */
         @media only screen and (max-width: 768px) {
-            .hero {
-                padding: 100px 0;
+            .services .card {
+                width: calc(50% - 20px);
             }
-            .hero h1 {
-                font-size: 36px;
-            }
-            .hero p {
-                font-size: 18px;
-            }
-            .about {
-                padding: 50px 20px;
-            }
-            .about h2 {
-                font-size: 24px;
-            }
-            .about p {
-                font-size: 14px;
-            }
-            .services {
-                padding: 50px 20px;
-            }
-            .services h2 {
-                font-size: 24px;
-            }
-            .services li {
-                margin-bottom: 10px;
-            }
-            .contact {
-                padding: 50px 20px;
-            }
-            .contact h2 {
-                font-size: 24px;
-            }
-            .contact p {
-                font-size: 14px;
+        }
+        @media only screen and (max-width: 480px) {
+            .services .card {
+                width: 100%;
             }
         }
     </style>
@@ -176,24 +142,30 @@
     </section>
     <section class="about">
         <h2>About Us</h2>
-        <p>We are a team of experts dedicated to providing innovative AI analytics solutions for e-commerce businesses. Our goal is to help you make data-driven decisions and stay ahead of the competition.</p>
+        <p>TechVista Solutions is a leading provider of AI analytics solutions for e-commerce businesses. Our team of experts uses cutting-edge technology to help our clients gain valuable insights into their customers' behavior, preferences, and purchasing patterns. With our innovative solutions, businesses can optimize their marketing strategies, improve customer engagement, and increase sales.</p>
     </section>
     <section class="services">
         <h2>Our Services</h2>
-        <ul>
-            <li><i class="fa fa-line-chart" aria-hidden="true"></i> Predictive Analytics</li>
-            <li><i class="fa fa-area-chart" aria-hidden="true"></i> Data Visualization</li>
-            <li><i class="fa fa-cog" aria-hidden="true"></i> Machine Learning</li>
-            <li><i class="fa fa-database" aria-hidden="true"></i> Data Management</li>
-        </ul>
+        <div class="card">
+            <h3>Predictive Analytics</h3>
+            <p>Our predictive analytics solutions help businesses forecast sales, identify trends, and make data-driven decisions.</p>
+        </div>
+        <div class="card">
+            <h3>Customer Segmentation</h3>
+            <p>Our customer segmentation solutions help businesses identify their target audience, personalize marketing campaigns, and improve customer engagement.</p>
+        </div>
+        <div class="card">
+            <h3>Marketing Automation</h3>
+            <p>Our marketing automation solutions help businesses streamline their marketing processes, reduce costs, and increase efficiency.</p>
+        </div>
     </section>
     <section class="contact">
         <h2>Get in Touch</h2>
         <p>Phone: -677</p>
-        <p>Email: <a href="mailto:your-email@gmail.com">your-email@gmail.com</a></p>
+        <p>Email: your-email@gmail.com</p>
     </section>
     <footer class="footer">
-        &copy; 2023 TechVista Solutions
+        &copy; 2024 TechVista Solutions
     </footer>
 </body>
 </html>
