@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechVista Solutions</title>
     <style>
-        /* Global Styles */
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #f1c40f;
+            --background-color: #f9f9f9;
+        }
         * {
             box-sizing: border-box;
             margin: 0;
@@ -15,19 +19,19 @@
             font-family: Arial, sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #f9f9f9;
-            scroll-behavior: smooth;
+            background-color: var(--background-color);
+            overflow-x: hidden;
         }
-        a {
-            text-decoration: none;
-            color: #337ab7;
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
         }
-        a:hover {
-            color: #23527c;
-        }
-        /* Hero Section Styles */
         .hero {
-            background-image: linear-gradient(to bottom, #34a85a, #2e865f);
+            background-image: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
             background-size: 100% 300px;
             background-position: 0% 100%;
             height: 100vh;
@@ -38,11 +42,10 @@
         }
         .hero h1 {
             font-size: 48px;
-            font-weight: bold;
             animation: fade-in 2s;
         }
         .hero p {
-            font-size: 18px;
+            font-size: 24px;
             animation: fade-in 2s 0.5s;
         }
         @keyframes fade-in {
@@ -53,119 +56,109 @@
                 opacity: 1;
             }
         }
-        /* About Section Styles */
         .about {
-            padding: 50px;
-            text-align: center;
+            padding: 40px;
         }
         .about h2 {
             font-size: 36px;
-            font-weight: bold;
             margin-bottom: 20px;
         }
         .about p {
             font-size: 18px;
         }
-        /* Services/Features Section Styles */
         .services {
-            background-color: #f7f7f7;
-            padding: 50px;
-            text-align: center;
+            padding: 40px;
         }
         .services h2 {
             font-size: 36px;
-            font-weight: bold;
             margin-bottom: 20px;
         }
-        .services .card {
-            background-color: #fff;
+        .service {
+            margin-bottom: 20px;
             padding: 20px;
             border: 1px solid #ddd;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin: 20px;
-            width: calc(33.33% - 20px);
-            display: inline-block;
-            transition: transform 0.2s;
+            transition: all 0.3s;
         }
-        .services .card:hover {
-            transform: scale(1.1);
-        }
-        .services .card h3 {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        /* Contact Section Styles */
-        .contact {
-            background-image: linear-gradient(to bottom, #34a85a, #2e865f);
-            background-size: 100% 200px;
-            background-position: 0% 100%;
-            padding: 50px;
-            text-align: center;
+        .service:hover {
+            background-color: var(--primary-color);
             color: #fff;
+        }
+        .contact {
+            padding: 40px;
         }
         .contact h2 {
             font-size: 36px;
-            font-weight: bold;
             margin-bottom: 20px;
         }
         .contact p {
             font-size: 18px;
-            margin-bottom: 20px;
         }
-        /* Footer Styles */
+        .contact a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
         .footer {
-            background-color: #333;
-            padding: 10px;
-            text-align: center;
+            background-color: var(--primary-color);
             color: #fff;
-            font-size: 14px;
+            padding: 20px;
+            text-align: center;
         }
-        /* Responsive Design */
-        @media only screen and (max-width: 768px) {
-            .services .card {
-                width: calc(50% - 20px);
+        .footer p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px auto;
+                padding: 10px;
             }
-        }
-        @media only screen and (max-width: 480px) {
-            .services .card {
-                width: 100%;
+            .hero {
+                height: 50vh;
+            }
+            .hero h1 {
+                font-size: 36px;
+            }
+            .hero p {
+                font-size: 18px;
             }
         }
     </style>
 </head>
 <body>
-    <section class="hero">
-        <h1>TechVista Solutions</h1>
-        <p>Unlocking the Power of AI Analytics for E-commerce</p>
-    </section>
-    <section class="about">
-        <h2>About Us</h2>
-        <p>TechVista Solutions is a leading provider of AI analytics solutions for e-commerce businesses. Our team of experts uses cutting-edge technology to help our clients gain valuable insights into their customers' behavior, preferences, and purchasing patterns. With our innovative solutions, businesses can optimize their marketing strategies, improve customer engagement, and increase sales.</p>
-    </section>
-    <section class="services">
-        <h2>Our Services</h2>
-        <div class="card">
-            <h3>Predictive Analytics</h3>
-            <p>Our predictive analytics solutions help businesses forecast sales, identify trends, and make data-driven decisions.</p>
+    <div class="container">
+        <div class="hero">
+            <div>
+                <h1>TechVista Solutions</h1>
+                <p>Unlocking E-commerce Potential with AI Analytics</p>
+            </div>
         </div>
-        <div class="card">
-            <h3>Customer Segmentation</h3>
-            <p>Our customer segmentation solutions help businesses identify their target audience, personalize marketing campaigns, and improve customer engagement.</p>
+        <div class="about">
+            <h2>About Us</h2>
+            <p>TechVista Solutions is a cutting-edge technology company that specializes in providing AI-powered analytics solutions for e-commerce businesses. Our mission is to help online retailers unlock their full potential by providing them with data-driven insights that drive sales, revenue, and customer satisfaction. With our expertise in artificial intelligence and machine learning, we empower e-commerce companies to make informed decisions, optimize their operations, and stay ahead of the competition.</p>
         </div>
-        <div class="card">
-            <h3>Marketing Automation</h3>
-            <p>Our marketing automation solutions help businesses streamline their marketing processes, reduce costs, and increase efficiency.</p>
+        <div class="services">
+            <h2>Our Services</h2>
+            <div class="service">
+                <h3>Predictive Analytics</h3>
+                <p>Our predictive analytics solution uses machine learning algorithms to forecast sales, revenue, and customer behavior, allowing you to make informed decisions and stay ahead of the competition.</p>
+            </div>
+            <div class="service">
+                <h3>Customer Segmentation</h3>
+                <p>Our customer segmentation solution uses AI-powered clustering algorithms to identify high-value customer segments, allowing you to tailor your marketing efforts and improve customer satisfaction.</p>
+            </div>
+            <div class="service">
+                <h3>Supply Chain Optimization</h3>
+                <p>Our supply chain optimization solution uses machine learning algorithms to optimize inventory management, shipping, and logistics, allowing you to reduce costs, improve efficiency, and enhance customer experience.</p>
+            </div>
         </div>
-    </section>
-    <section class="contact">
-        <h2>Get in Touch</h2>
-        <p>Phone: -677</p>
-        <p>Email: your-email@gmail.com</p>
-    </section>
-    <footer class="footer">
-        &copy; 2024 TechVista Solutions
-    </footer>
+        <div class="contact">
+            <h2>Get in Touch</h2>
+            <p>Have any questions or want to learn more about our services? Contact us at <a href="tel:-677">-677</a> or <a href="mailto:your-email@gmail.com">your-email@gmail.com</a>.</p>
+        </div>
+        <div class="footer">
+            <p>&copy; 2024 TechVista Solutions</p>
+        </div>
+    </div>
 </body>
 </html>
