@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechVista Solutions</title>
     <style>
-        /* Global Styles */
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #f1c40f;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+        }
         * {
             box-sizing: border-box;
             margin: 0;
@@ -14,52 +19,40 @@
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
+            color: var(--dark-color);
+            background-color: var(--light-color);
             overflow-x: hidden;
         }
-        a {
-            text-decoration: none;
-            color: #337ab7;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #3a86ff, #ff006e);
-            background-size: 400% 400%;
-            animation: gradient 10s ease infinite;
+            background-image: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+            background-size: 100% 300px;
+            background-position: 0% 100%;
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             color: #fff;
+            animation: hero-animation 10s infinite;
         }
-        @keyframes gradient {
+        @keyframes hero-animation {
             0% {
-                background-position: 0% 50%;
+                background-position: 0% 100%;
             }
             50% {
-                background-position: 100% 50%;
+                background-position: 100% 100%;
             }
             100% {
-                background-position: 0% 50%;
+                background-position: 0% 100%;
             }
         }
         .hero h1 {
             font-size: 48px;
         }
         .hero p {
-            font-size: 18px;
-            margin-bottom: 20px;
+            font-size: 24px;
         }
-        /* About Section */
         .about {
-            background-color: #fff;
-            padding: 50px 0;
+            padding: 100px;
             text-align: center;
         }
         .about h2 {
@@ -68,44 +61,32 @@
         }
         .about p {
             font-size: 18px;
-            margin-bottom: 20px;
         }
-        /* Services/Features Section */
         .services {
-            background-color: #f9f9f9;
-            padding: 50px 0;
-            text-align: center;
+            padding: 100px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
         }
-        .services h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-        .services .service {
-            background-color: #fff;
-            padding: 20px;
+        .service {
             margin: 20px;
+            width: calc(33.33% - 20px);
+            padding: 20px;
             border: 1px solid #ddd;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
             transition: transform 0.2s ease-in-out;
         }
-        .services .service:hover {
-            transform: translateY(-10px);
+        .service:hover {
+            transform: scale(1.05);
         }
-        .services .service h3 {
+        .service h3 {
             font-size: 24px;
             margin-bottom: 10px;
         }
-        .services .service p {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-        /* Contact Section */
         .contact {
-            background-color: #333;
-            padding: 50px 0;
+            padding: 100px;
             text-align: center;
-            color: #fff;
         }
         .contact h2 {
             font-size: 36px;
@@ -116,69 +97,57 @@
             margin-bottom: 20px;
         }
         .contact a {
-            color: #fff;
+            text-decoration: none;
+            color: var(--primary-color);
         }
-        /* Footer */
         .footer {
-            background-color: #333;
-            padding: 10px 0;
-            text-align: center;
+            background-color: var(--dark-color);
             color: #fff;
+            padding: 20px;
+            text-align: center;
+            clear: both;
         }
-        /* Media Queries */
         @media only screen and (max-width: 768px) {
-            .hero {
-                height: 50vh;
+            .services {
+                flex-direction: column;
             }
-            .about, .services, .contact {
-                padding: 20px 0;
-            }
-            .services .service {
-                margin: 10px;
+            .service {
+                width: 100%;
+                margin: 20px 0;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Hero Section -->
-        <div class="hero">
-            <div>
-                <h1>TechVista Solutions</h1>
-                <p>Unlocking Insights with AI Analytics for E-commerce</p>
-            </div>
+    <div class="hero">
+        <h1>TechVista Solutions</h1>
+        <p>Unlocking Insights with AI Analytics for E-commerce</p>
+    </div>
+    <div class="about">
+        <h2>About Us</h2>
+        <p>TechVista Solutions is a cutting-edge technology company that specializes in providing AI-powered analytics solutions for e-commerce businesses. Our mission is to help online retailers make data-driven decisions, drive sales, and boost customer satisfaction. With our expert team and state-of-the-art technology, we empower businesses to unlock their full potential and stay ahead of the competition.</p>
+    </div>
+    <div class="services">
+        <div class="service">
+            <h3>Predictive Analytics</h3>
+            <p>Leverage machine learning algorithms to forecast sales, identify trends, and optimize pricing strategies.</p>
         </div>
-        <!-- About Section -->
-        <div class="about">
-            <h2>About Us</h2>
-            <p>TechVista Solutions is a leading provider of AI analytics solutions for e-commerce businesses. Our team of experts helps you gain valuable insights into your customers' behavior, preferences, and trends, enabling you to make informed decisions and drive growth.</p>
+        <div class="service">
+            <h3>Customer Segmentation</h3>
+            <p>Use AI-driven insights to segment your customer base, personalize marketing campaigns, and improve customer engagement.</p>
         </div>
-        <!-- Services/Features Section -->
-        <div class="services">
-            <h2>Our Services</h2>
-            <div class="service">
-                <h3>Predictive Analytics</h3>
-                <p>Our predictive analytics solutions help you forecast sales, identify trends, and optimize your marketing strategies.</p>
-            </div>
-            <div class="service">
-                <h3>Customer Segmentation</h3>
-                <p>Our AI-powered customer segmentation tools help you identify high-value customers, personalize marketing campaigns, and improve customer retention.</p>
-            </div>
-            <div class="service">
-                <h3>Supply Chain Optimization</h3>
-                <p>Our supply chain optimization solutions help you streamline logistics, reduce costs, and improve delivery times.</p>
-            </div>
+        <div class="service">
+            <h3>Supply Chain Optimization</h3>
+            <p>Optimize your supply chain operations with predictive analytics, reducing costs and improving delivery times.</p>
         </div>
-        <!-- Contact Section -->
-        <div class="contact">
-            <h2>Get in Touch</h2>
-            <p>Phone: -677</p>
-            <p>Email: <a href="mailto:your-email@gmail.com">your-email@gmail.com</a></p>
-        </div>
-        <!-- Footer -->
-        <div class="footer">
-            <p>&copy; 2023 TechVista Solutions</p>
-        </div>
+    </div>
+    <div class="contact">
+        <h2>Get in Touch</h2>
+        <p>Phone: -677</p>
+        <p>Email: <a href="mailto:your-email@gmail.com">your-email@gmail.com</a></p>
+    </div>
+    <div class="footer">
+        &copy; 2024 TechVista Solutions
     </div>
 </body>
 </html>
